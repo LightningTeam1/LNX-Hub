@@ -10,12 +10,11 @@ coreFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 coreFrame.BackgroundTransparency = 0.5
 coreFrame.BorderSizePixel = 0
 coreFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-coreFrame.ClipsDescendants = true
 coreFrame.Parent = stealthGui
 
-local coreFrameCorner = Instance.new("UICorner")
-coreFrameCorner.CornerRadius = UDim.new(0, 10)
-coreFrameCorner.Parent = coreFrame
+local frameCorner = Instance.new("UICorner")
+frameCorner.CornerRadius = UDim.new(0, 10)
+frameCorner.Parent = coreFrame
 
 local label = Instance.new("TextLabel")
 label.Name = "KeyPrompt"
@@ -26,6 +25,7 @@ label.Text = "Insert the Key"
 label.TextColor3 = Color3.fromRGB(255, 255, 255)
 label.Font = Enum.Font.SourceSans
 label.TextSize = 20
+label.TextScaled = false
 label.Parent = coreFrame
 
 local inputBox = Instance.new("TextBox")
@@ -38,6 +38,7 @@ inputBox.TextColor3 = Color3.fromRGB(0, 0, 0)
 inputBox.Font = Enum.Font.SourceSans
 inputBox.PlaceholderText = "Enter Key"
 inputBox.TextSize = 18
+inputBox.ClearTextOnFocus = false
 inputBox.Parent = coreFrame
 
 local inputCorner = Instance.new("UICorner")
@@ -60,6 +61,5 @@ buttonCorner.CornerRadius = UDim.new(0, 8)
 buttonCorner.Parent = verifyButton
 
 verifyButton.MouseButton1Click:Connect(function()
-    local key = inputBox.Text
-    print("Key ingresada:", key)
+    print("Key ingresada:", inputBox.Text)
 end)
